@@ -2,7 +2,6 @@
 
 describe("This test is to validate add and delete scenarios into the quales app", () => {
     it("Verify user can add todo tasks successfully on the todo website", () => {
-        //cypress visits quales academy url
         cy.visit("https://qa-challenge-to-do-app.vercel.app/");
         cy.get('.Searchbar_container__XovFl').type("Tofunmi{Enter}")
         cy.get('.flex-1').should("be.visible")
