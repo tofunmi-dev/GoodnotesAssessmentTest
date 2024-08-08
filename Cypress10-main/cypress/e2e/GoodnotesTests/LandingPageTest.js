@@ -3,7 +3,7 @@
 describe("This test is to validate the functions present on the goodnotes website", () => {
     it("Verify that user can view the possible options on the goodnotes website", () => {
         //cypress visits page url
-        cy.visit("https://www.goodnotes.com/");
+        cy.visit("https://qa-challenge-to-do-app.vercel.app/");
         // user rejects cookies
         //     cy.get('#W0wltc > .QS5gu').click();
         //     //User clicks on the search field 
