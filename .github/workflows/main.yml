@@ -1,20 +1,17 @@
-on: [push, pull_request]
+name: Cypress Tests
+
+on: push
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
-          node-version: "16"
-
-      - name: Run Cypress Tests
-        run: npx cypress run
-        env:
-          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
-          CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
-          CYPRESS_WRONGPASSWORD: ${{ secrets.CYPRESS_WRONGPASSWORD }}
+          build: npm run build
+          start: npm start
